@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gene Info Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Gene Info Finder</h1>
+        <p>Search a gene symbol and get basic gene info from Ensembl.</p>
+      </header>
+
+      <section class="controls">
+        <label for="species">Species</label>
+        <select id="species">
+          <option value="human" selected>Human</option>
+          <option value="mouse">Mouse</option>
+          <option value="zebrafish">Zebrafish</option>
+          <option value="rat">Rat</option>
+          <option value="fruitfly">Fruit fly</option>
+          <option value="yeast">Yeast</option>
+        </select>
+
+        <label for="symbol">Gene symbol</label>
+        <input id="symbol" type="text" placeholder="TP53" autocomplete="off" />
+
+        <button id="searchBtn" type="button">Search</button>
+        <button id="clearBtn" type="button" class="ghost">Clear</button>
+      </section>
+
+      <section id="status" class="status" role="status" aria-live="polite"></section>
+
+      <section id="card" class="card hidden">
+        <div class="card-top">
+          <h2 id="geneName"></h2>
+          <a id="ensemblLink" target="_blank" rel="noreferrer">Open in Ensembl</a>
+        </div>
+
+        <p id="geneDesc" class="muted"></p>
+
+        <div class="stats">
+          <div class="stat"><span class="label">Ensembl ID</span><span id="ensemblId"></span></div>
+          <div class="stat"><span class="label">Chromosome</span><span id="chrom"></span></div>
+          <div class="stat"><span class="label">Start–End</span><span id="coords"></span></div>
+          <div class="stat"><span class="label">Strand</span><span id="strand"></span></div>
+        </div>
+
+        <div class="meta">
+          <span class="chip" id="biotypeChip"></span>
+          <span class="chip" id="speciesChip"></span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>Data from Ensembl REST API.</small>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
